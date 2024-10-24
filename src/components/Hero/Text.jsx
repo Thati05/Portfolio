@@ -12,9 +12,19 @@ export default function Text() {
   return (
     <div className="row-span-1 row-start-1 min-h-[300px] h-[300px] w-full -mt-9">
       <Canvas
-        className="z-0 w-full h-full"
+        
+        style={{
+      position:"relative",
+      top:0,
+      left:"47%",
+      transform:"translate(-50%)",
+      overflow:"hidden",
+      zIndex:30,
+      
+      
+    }}
         dpr={[1, 1.5]}
-        camera={{ position: [0, 0, 30], far: 20, near: 1 }}
+        camera={{ position: [0, 0, 30], far: 40, near: 1 }}
         gl={{ antialias: false }}
       >
         <Suspense fallback={null}>
@@ -34,7 +44,7 @@ export function Model(props) {
     
     // Set initial color randomly on first render
     const [currentColor, setCurrentColor] = useState(() =>
-      gsap.utils.random(["red", "blue", "green", "yellow", "purple", "orange", "white","hot pink"])
+      gsap.utils.random(["red", "blue", "green", "yellow", "purple", "orange", "white"])
     );
 
     // Function to handle rotation and color change on click
@@ -49,8 +59,7 @@ export function Model(props) {
         "yellow",
         "purple",
         "orange",
-        "white",
-        "hot pink",
+        "white"
       ]);
       setCurrentColor(newColor);
 
@@ -93,71 +102,67 @@ export function Model(props) {
   // Function to handle planet rotation for 2 seconds
   function planetRotation(mesh) {
     gsap.to(mesh.rotation, {
-      x: "+=6.28", // One full rotation (2 * PI radians)
+      x: "+=6.28", 
       y: "+=6.28",
-      duration: 2, // Rotation duration is 2 seconds
-      ease: "power1.inOut", // Smooth transition
+      duration: 2, 
+      ease: "power1.inOut", 
     });
   }
 
   return (
-    <group {...props} dispose={null} position={[-40, -1, 12]} rotation={[0, -Math.PI, 0]} scale={7}>
+    <group {...props} dispose={null} position={[-40, -1.5, 12]} rotation={[0, -Math.PI, 0]} scale={7.2}>
       {/* Top mesh (e.g., planet) with rotation on click */}
-      <group  position={[-5.496, 0.356, -0.001]} scale={1.059}>
-        <Float   floatIntensity={0.1}>
-          <group onClick={(e) => planetRotation(e.object)} >
-
-
+      <group position={[-5.496, 0.356, -0.001]} scale={1.039}>
+        <Float floatIntensity={0.1}>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Icosphere004.geometry}
             material={nodes.Icosphere004.material} // Retain the original material
-            
-            />
+            onClick={(e) => planetRotation(e.object)} // Rotate the planet on click
+          />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Icosphere004_1.geometry}
             material={nodes.Icosphere004_1.material}
-           
+            onClick={(e) => planetRotation(e.object)} // Apply rotation
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Icosphere004_2.geometry}
             material={nodes.Icosphere004_2.material}
-            
-            />
+            onClick={(e) => planetRotation(e.object)} // Apply rotation
+          />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Icosphere004_3.geometry}
             material={nodes.Icosphere004_3.material}
-            
-            />
+            onClick={(e) => planetRotation(e.object)} // Apply rotation
+          />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Icosphere004_4.geometry}
             material={nodes.Icosphere004_4.material}
-            
-            />
+            onClick={(e) => planetRotation(e.object)} // Apply rotation
+          />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Icosphere004_5.geometry}
             material={nodes.Icosphere004_5.material}
-            
+            onClick={(e) => planetRotation(e.object)} // Apply rotation
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Icosphere004_6.geometry}
             material={nodes.Icosphere004_6.material}
-            
-            />
-            </group>
+            onClick={(e) => planetRotation(e.object)} // Apply rotation
+          />
         </Float>
       </group>
 

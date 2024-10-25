@@ -101,7 +101,7 @@ export default function Hero({}: Props) {
 
         {/* Heading and paragraphs */}
         <div className="col-start-1 md:row-start-1">
-          <h1 className="hero-header block mb-8 text-[clamp(3rem,20vmin,20rem)] font-bold leading-none tracking-tighter">
+          <h1 className="hero-header block mb-8 text-[clamp(2rem,18vmin,20rem)] font-bold leading-none tracking-tighter">
             {renderLetters(iam)}
             <span style={{ display: 'inline-block', width: '1rem' }}></span> {/* Add gap */}
             {renderLetters(lastName)}
@@ -110,13 +110,17 @@ export default function Hero({}: Props) {
             <div className="text-description text-xl font-normal">
               Hi! I am a front-end developer based in South Africa, passionate about designing beautiful, functional interfaces and bringing them to life through code. While I'm self-taught, I owe much of my journey to my Creator—and, of course, countless YouTube tutorials.
             </div>
-            <div className="hero-subtext quick-links text-xl font-normal">
-              <div className="resume-link">
-                <img src="path_to_resume_icon.png" alt="Resume Icon" className="inline-block" />
+            <div className="hero-subtext quick-links flex flex-col max-md:justify-center max-md:text-center max-md:items-center  text-xl font-normal">
+              <div className="resume-link mb-7 flex gap-2 items-center ">
+                <img src="https://cdn-icons-png.flaticon.com/512/10317/10317170.png" 
+                width={30}
+                alt="Resume Icon" className=" object-contain " />
                 <span>If you want my resume</span>
               </div>
-              <div className="contact-link">
-                <img src="path_to_chat_icon.png" alt="Chat Icon" className="inline-block" />
+              <div className="contact-link gap-2 flex items-center ">
+                <img  src="https://cdn-icons-png.flaticon.com/512/9634/9634853.png"
+                width={35}
+                alt="Coffee Icon" className=" object-contain" />
                 <span>Or have a chat</span>
               </div>
             </div>

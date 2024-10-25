@@ -148,56 +148,56 @@ export function Model(props) {
   return (
     <group {...props} dispose={null} position={[-40, -1.5, 12]} rotation={[0, -Math.PI, 0]} scale={7.2}>
       {/* Top mesh (e.g., planet) with rotation on click */}
-      <group position={[-5.496, 0.356, -0.001]} scale={1.039}>
+      <group   onClick={(e) => planetRotation(e.object)}  position={[-5.496, 0.356, -0.001]} scale={1.039}>
         <Float floatIntensity={0.1}>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Icosphere004.geometry}
             material={nodes.Icosphere004.material} // Retain the original material
-            onClick={(e) => planetRotation(e.object)} // Rotate the planet on click
+          
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Icosphere004_1.geometry}
             material={nodes.Icosphere004_1.material}
-            onClick={(e) => planetRotation(e.object)} // Apply rotation
+            
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Icosphere004_2.geometry}
             material={nodes.Icosphere004_2.material}
-            onClick={(e) => planetRotation(e.object)} // Apply rotation
+           
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Icosphere004_3.geometry}
             material={nodes.Icosphere004_3.material}
-            onClick={(e) => planetRotation(e.object)} // Apply rotation
+            
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Icosphere004_4.geometry}
             material={nodes.Icosphere004_4.material}
-            onClick={(e) => planetRotation(e.object)} // Apply rotation
+            
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Icosphere004_5.geometry}
             material={nodes.Icosphere004_5.material}
-            onClick={(e) => planetRotation(e.object)} // Apply rotation
+           
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Icosphere004_6.geometry}
             material={nodes.Icosphere004_6.material}
-            onClick={(e) => planetRotation(e.object)} // Apply rotation
+          
           />
         </Float>
       </group>

@@ -3,7 +3,7 @@
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { ContactShadows, Float, Environment } from "@react-three/drei";
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import gsap from "gsap";
@@ -39,27 +39,40 @@ export default function Text() {
 export function Model(props) {
   const { nodes } = useGLTF("/Hello-world5_1.glb");
 
+
+  const lettersoundEffects = [
+    new Audio('/sounds/footstep_wood_004.ogg'),
+    new Audio('sounds/impactPunch_medium_001.ogg'),
+    new Audio('/sounds/impactSoft_heavy_004.ogg'),
+    new Audio('/sounds/impactWood_medium_004.ogg'),
+  ];
+
+
   function Geometry({ position, geometry, rotation }) {
     const meshRef = useRef();
     
     // Set initial color randomly on first render
     const [currentColor, setCurrentColor] = useState(() =>
-      gsap.utils.random(["red", "blue", "green", "yellow", "purple", "orange", "white"])
+      gsap.utils.random(["#e74c3c", "#3498db", "#2ecc71", "#8e44ad", "orange", "white","#f1c40f","#2980b9","#e67e22"])
     );
 
     // Function to handle rotation and color change on click
     function handleClick(e) {
       const mesh = e.object;
+       // Play a random sound effect
+       gsap.utils.random(lettersoundEffects).play();
 
       // Randomly pick a new color for the clicked mesh
       const newColor = gsap.utils.random([
-        "red",
-        "blue",
-        "green",
-        "yellow",
-        "purple",
+        "#e74c3c",
+        "#3498db",
+        "#2ecc71",
+        "#8e44ad",
         "orange",
-        "white"
+        "white",
+        "#f1c40f",
+        "#2980b9",
+        "#e67e22"
       ]);
       setCurrentColor(newColor);
 
@@ -83,6 +96,25 @@ export function Model(props) {
       document.body.style.cursor = "default";
     };
 
+
+
+
+
+    useEffect(() => {
+      let ctx = gsap.context(() => {
+        gsap.from(meshRef.current.scale, {
+          x: 0,
+          y: 0,
+          z: 0,
+          duration: 0.1,
+          ease: 'elastic.out(1, 0.3)', // Corrected ease function syntax
+          delay: 0.5,
+        });
+      });
+    
+      return () => ctx.revert(); // Cleanup GSAP context on unmount
+    }, []);
+
     return (
       <mesh
         ref={meshRef}
@@ -98,9 +130,13 @@ export function Model(props) {
       />
     );
   }
+  const planetsoundEffect = [
+    new Audio('/sounds/lowFrequency_explosion_001.ogg')
+   ]
 
   // Function to handle planet rotation for 2 seconds
   function planetRotation(mesh) {
+    gsap.utils.random(planetsoundEffect).play();
     gsap.to(mesh.rotation, {
       x: "+=6.28", 
       y: "+=6.28",
@@ -188,6 +224,7 @@ export function Model(props) {
           geometry={nodes[name].geometry}
           position={position}
           rotation={rotation}
+          soundEffects={lettersoundEffects}
         />
       ))}
     </group>

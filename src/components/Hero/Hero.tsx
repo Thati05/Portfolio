@@ -32,6 +32,7 @@ export default function Hero({}: Props) {
           opacity: 1,
           rotate: 0,
           ease: 'elastic.out(1, 0.3)', // Elastic bounce effect
+          delay:2,
           duration: 1,
           stagger: {
             each: 0.2,

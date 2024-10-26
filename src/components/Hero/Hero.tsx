@@ -23,7 +23,8 @@ export default function Hero({}: Props) {
       <div className="flex  flex-col justify-center items-center">
         {/* Canvas on top */}
         <Text  />
-        <div className=' z-50 fixed p-20'>
+        {/*To Ensuring that gsap animations begin at the correct position  */}
+        <div className='z-10 fixed p-20'>
           <div className='beneth_mesh  p-20'>
 
           </div>

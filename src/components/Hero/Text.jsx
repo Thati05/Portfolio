@@ -10,7 +10,7 @@ import gsap from "gsap";
 
 export default function Text() {
   return (
-    <div className="w-screen mesh top-0 z-50 sticky hidden md:block row-span-1 row-start-1 h-[70vh] -mt-9">
+    <div className="w-screen top-0 z-50 sticky max-md:h-[30vh] row-span-1 row-start-1 h-[70vh] -mt-9">
       <Canvas
         
         style={{
@@ -146,7 +146,7 @@ export function Model(props) {
   }
 
   return (
-    <group {...props} dispose={null} position={[-40.6, -1, 9.8]} rotation={[0, -Math.PI, 0]} scale={7}>
+    <group {...props} dispose={null} position={[-40.6, -1.5, 9.8]} rotation={[0, -Math.PI, 0]} scale={7}>
       {/* Top mesh (e.g., planet) with rotation on click */}
       <group   onClick={(e) => planetRotation(e.object)}  position={[-5.496, 0.356, -0.001]} scale={1.2}>
         <Float floatIntensity={0.1}>

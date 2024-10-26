@@ -5,72 +5,69 @@ import gsap from "gsap";
 import Bounded from "./Bounded";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero_2nd() {
   const componentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Timeline for non-scroll-triggered animations can go here
-      const tl = gsap.timeline();
-    }, componentRef); // Context applied to componentRef
+    if (window.innerWidth > 768) {
+      const ctx = gsap.context(() => {
+        // Scroll-triggered animation for `.name-animation` only
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: ".beneth_mesh",
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 1,
+          },
+        }).fromTo(
+          ".name-animation",
+          {
+            x: -100,
+            opacity: 0,
+            rotate: -10,
+            transformOrigin: "left top",
+          },
+          {
+            x: 0,
+            opacity: 1,
+            rotate: 0,
+            ease: "elastic.out(1, 0.3)",
+            duration: 1,
+            stagger: { each: 0.05, from: "random" },
+          }
+        );
+      }, componentRef);
 
-    // Scroll-triggered animation setup
-    const scrollTL = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".beneth_mesh",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 1,
-        //markers: true,
-      },
-    });
+   
 
-    const scrollTL2 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".beneth_mesh",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 1,
-        //markers: true,
-      },
-    });
-
-    scrollTL2
-    .fromTo(
-      ".text-description",
-      { x: -20, opacity: 0 },
-      { x: 0, opacity: 1, stagger: 0.5 }
-    )
-    .fromTo(
-      ".resume-link, .contact-link",
-      { x: -20, opacity: 0 },
-      { x: 0, opacity: 1, stagger: 0.5 }
-    )
-
-    scrollTL
-  
-      .fromTo(
-        ".name-animation",
-        {
-          x: -100,
-          opacity: 0,
-          rotate: -90,
-          transformOrigin: "center center",
+      const scrollTL2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".beneth_mesh",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1,
         },
-        {
-          x: 0,
-          opacity: 1,
-          rotate: 0,
-          ease: "elastic.out(1, 0.3)",
-          duration: 1,
-          stagger: { each: 1, from: "random" },
-        }
-      );
+      });
 
-    return () => ctx.revert(); // Cleanup GSAP context on unmount
-  }, []);
+      scrollTL2
+        .fromTo(
+          ".text-description",
+          { y: -20, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.5 }
+        )
+        .fromTo(
+          ".resume-link, .contact-link",
+          { x: -20, opacity: 0 },
+          { x: 0, opacity: 1, stagger: 0.5 }
+        );
+
+      
+
+      return () => ctx.revert();
+    }
+  }, [componentRef]);
 
   const iam = "I'm";
   const lastName = "Seithati";
@@ -83,12 +80,11 @@ export default function Hero_2nd() {
     ));
 
   return (
-    <section ref={componentRef} className="h-max  hero-2 px-4 md:px-6">
-      {/* Heading and paragraphs */}
+    <section ref={componentRef} className="h-max hero-2 px-4 md:px-6">
       <div className="col-start-1 md:row-start-1">
         <h1 className="hero-header block mb-8 text-[clamp(2rem,18vmin,20rem)] font-bold leading-none tracking-tighter">
           {renderLetters(iam)}
-          <span style={{ display: "inline-block", width: "1rem" }}></span> {/* Add gap */}
+          <span style={{ display: "inline-block", width: "1rem" }}></span>
           {renderLetters(lastName)}
         </h1>
         <div className="hero-text grid grid-cols-2 max-md:grid-cols-1 gap-48 max-md:gap-10 items-center">

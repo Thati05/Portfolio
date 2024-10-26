@@ -92,11 +92,10 @@ export function Model(props) {
     const handlePointerOver = () => {
       document.body.style.cursor = "pointer";
     };
+    
     const handlePointerOut = () => {
       document.body.style.cursor = "default";
     };
-
-
 
 
 
@@ -143,12 +142,17 @@ export function Model(props) {
       duration: 2, 
       ease: "power1.inOut", 
     });
-  }
 
+  
+  }  
+  const handlePointerOut = () => {
+    document.body.style.cursor = "default";
+  };
   return (
     <group {...props} dispose={null} position={[-40.6, -1.5, 9.8]} rotation={[0, -Math.PI, 0]} scale={7}>
       {/* Top mesh (e.g., planet) with rotation on click */}
-      <group   onClick={(e) => planetRotation(e.object)}  position={[-5.496, 0.356, -0.001]} scale={1.2}>
+      <group    onPointerOver={() => (document.body.style.cursor = "pointer")}
+        onPointerOut={() => (document.body.style.cursor = "default")} onClick={(e) => planetRotation(e.object)}  position={[-5.496, 0.356, -0.001]} scale={1.2}>
         <Float floatIntensity={0.1}>
           <mesh
             castShadow

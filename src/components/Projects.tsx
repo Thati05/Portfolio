@@ -1,8 +1,17 @@
+"use client"
+
 import React from 'react';
 import Bounded from './Bounded';
 import portfolioProject from '../constants/index';
+import { useEffect } from 'react';
+
+
 
 export default function Projects() {
+  useEffect(() => {
+    console.log("Video path:", portfolioProject);
+  }, [portfolioProject]);
+
   return (
     <Bounded>
       <div className="container h-screen">
@@ -18,7 +27,8 @@ export default function Projects() {
               <h3>{project.title}</h3>
               <hr />
               <div>{project.description}</div>
-              <div>
+
+              
              {/* Render the appropriate button based on `live_site` value */}
               {project.live_site.trim() ? (
                 <a href={project.live_site}>
@@ -41,8 +51,23 @@ export default function Projects() {
           </button>
               </a>
 
-              </div>
-              <video/>
+             
+              <video
+  key={project.title}
+  controls
+  autoPlay
+  loop
+  muted // Muted attribute helps autoplay work in most browsers
+  width="600"
+>
+  {project.display ? (
+    <source src={project.display} type="video/mp4" />
+  ) : (
+    <p>Video not available</p>
+  )}
+  Your browser does not support the video tag.
+</video>
+
 
 
             </div>

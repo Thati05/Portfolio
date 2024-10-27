@@ -60,22 +60,29 @@ const Navbar: React.FC = () => {
 
         <div className="max-md:hidden flex gap-5 font-Urbanist items-center">
           {/* Image links */}
+          <a  href="https://github.com/Thati05" >
+
           <div className="p-2 bg-gray-100 rounded-full">
             <img
               src="https://cdn-icons-png.flaticon.com/512/4926/4926624.png"
               alt="Icon"
               width={20}
               height={20}
-            />
+              />
           </div>
+              </a>
+          <a href="https://www.instagram.com/thati_ly_/" >
+
           <div className="p-2 bg-gray-100 rounded-full">
+
             <img
               src="https://cdn-icons-png.flaticon.com/512/6433/6433684.png"
               alt="Icon"
               width={20}
               height={20}
-            />
+              />
           </div>
+              </a>
           <div className="p-2 bg-gray-100 rounded-full">
             <img
               src="https://cdn-icons-png.flaticon.com/512/2111/2111532.png"

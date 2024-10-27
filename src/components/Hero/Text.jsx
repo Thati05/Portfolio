@@ -45,6 +45,7 @@ export function Model(props) {
     new Audio('sounds/impactPunch_medium_001.ogg'),
     new Audio('/sounds/impactSoft_heavy_004.ogg'),
     new Audio('/sounds/impactWood_medium_004.ogg'),
+    
   ];
 
 

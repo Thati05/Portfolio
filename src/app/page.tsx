@@ -10,8 +10,8 @@ export default function Home() {
    <main className=" font-Urbanist max-w-7xl mx-auto relative justify-center  ">
   
       <Hero/>
-      <Tape/>
       <Projects />
+      <Tape/>
       
     
      

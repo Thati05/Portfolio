@@ -92,7 +92,7 @@ export default function Projects() {
 
               {project.display && (
                 <video 
-                className="rounded-[12px] -mb-4 mt-8  lg:mt-1 border lg:absolute lg:h-full  border-[#E6E6E6] lg:w-auto lg:max-w-none "
+                className="rounded-[12px]   lg:ml-4 -mb-4 mt-8  lg:mt-1 border lg:absolute lg:h-full  border-[#E6E6E6] lg:w-auto lg:max-w-none "
                 autoPlay
                 loop
                 

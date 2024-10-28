@@ -16,10 +16,11 @@ export default function Hero_2nd() {
         // Scroll-triggered animation for `.name-animation` only
         gsap.timeline({
           scrollTrigger: {
-            trigger: ".beneth_mesh",
+            trigger: ".hero",
             start: "top top",
             end: "bottom bottom",
             scrub: 1,
+            
           },
         }).fromTo(
           ".name-animation",

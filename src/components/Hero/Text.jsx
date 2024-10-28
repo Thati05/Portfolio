@@ -29,7 +29,7 @@ export default function Text() {
       >
         <Suspense fallback={null}>
           <Model />
-          <Environment environmentIntensity={3} preset="city" />
+         <Environment environmentIntensity={3} preset="city" />
         </Suspense>
       </Canvas>
     </div>

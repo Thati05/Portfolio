@@ -24,8 +24,8 @@ export default function Hero({}: Props) {
         {/* Canvas on top */}
         <Text  />
         {/*To Ensuring that gsap animations begin at the correct position  */}
-        <div className='z-10 fixed p-20'>
-          <div className='beneth_mesh  p-20'>
+        <div className=' over z-10 absolute p-20'>
+          <div className='beneth_mesh   p-20'>
 
           </div>
        

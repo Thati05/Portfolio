@@ -82,7 +82,7 @@ export function Model(props) {
         mesh.rotation,
         { y: 0 },
         {
-          y: `+=${gsap.utils.random(-0.5, 0.5)}`,
+          y: `+=${gsap.utils.random(-0.4, 0.4)}`,
           duration: 1.3,
           ease: "elastic.out(1, 0.3)",
           yoyo: true,

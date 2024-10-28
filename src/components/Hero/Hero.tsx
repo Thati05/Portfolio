@@ -19,29 +19,10 @@ export default function Hero({}: Props) {
  
 
   return (
-    <Bounded className="hero relative" ref={componentRef}>
-      <div className="flex  flex-col justify-center items-center">
-        
-        {/* Canvas on top */}
-        <Text  />
-        
+    <Bounded className="hero flex-col min-h-screen w-full flex relative" ref={componentRef}>
+    
+ <Text  />
 
-
-        {/*To Ensuring that gsap animations begin at the correct position 
-        <div className=' z-10  p-20'>
-          <div className='beneth_mesh   p-20'>
-
-          </div>
-       
-
-        </div> */}
-
-
-
-        
-              
-   
-      </div>
       
     </Bounded>
   );

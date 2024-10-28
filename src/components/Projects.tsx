@@ -57,14 +57,14 @@ export default function Projects() {
 
               {project.live_site.trim() ? (
                 <a href={project.live_site} target="_blank" rel="noopener noreferrer">
-                  <button className="bg-black text-white h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 md:w-auto px-6">
+                  <button className="bg-black text-white h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 lg:w-auto px-6">
                     <span>Visit Live Site</span>
                     <Image src={ArrowUpRightIcon} alt="Arrow Up Right Icon" width={20} height={20} />
                   </button>
                 </a>
               ) : (
                 <a href={project.figma_design} target="_blank" rel="noopener noreferrer">
-                  <button className="bg-black text-white h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 md:w-auto px-6">
+                  <button className="bg-black text-white h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 lg:w-auto px-6">
                     <span>Visit Figma Design</span>
                     <Image src={ArrowUpRightIcon} alt="Arrow Up Right Icon" width={20} height={20} />
                   </button>

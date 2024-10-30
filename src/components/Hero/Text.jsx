@@ -10,13 +10,13 @@ import gsap from "gsap";
 
 export default function Text() {
   return (
-    <div className="w-screen top-0 z-50 sticky max-md:h-[30vh] row-span-1 row-start-1 h-[70vh] -mt-9">
+    <div className= " w-[96.8svw]  top-0 z-50 sticky max-md:h-[30vh] row-span-1 row-start-1 h-[70vh] -mt-9">
       <Canvas
         
         style={{
       position:"relative",
       top:0,
-      left:"47%",
+      left:"49%",
       transform:"translate(-50%)",
       overflow:"hidden",
       zIndex:30,
@@ -150,7 +150,7 @@ export function Model(props) {
     document.body.style.cursor = "default";
   };
   return (
-    <group {...props} dispose={null} position={[-40.6, -1.5, 9.8]} rotation={[0, -Math.PI, 0]} scale={7}>
+    <group {...props} dispose={null} position={[-42.5, -1.5, 9.8]} rotation={[0, -Math.PI, 0]} scale={7}>
       {/* Top mesh (e.g., planet) with rotation on click */}
       <group    onPointerOver={() => (document.body.style.cursor = "pointer")}
         onPointerOut={() => (document.body.style.cursor = "default")} onClick={(e) => planetRotation(e.object)}  position={[-5.496, 0.356, -0.001]} scale={1.2}>

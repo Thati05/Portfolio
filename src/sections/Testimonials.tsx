@@ -1,59 +1,78 @@
-import SectionHeader from "@/components/SectionHeader"
-import Image from "next/image"
-import Card from "@/components/Card"
+import SectionHeader from "@/components/SectionHeader";
+import Image from "next/image";
+import Card from "@/components/Card";
+import Bounded from "@/components/Bounded";
 
 const testimonials = [
   {
     name: "Gerard",
-    email:"gerard01@gmail.com",
-    text:"Seithati consistently demonstrates exceptional creativity and technical skill as a front-end developer. Their attention to detail and commitment to user-centered design shines through in every project, from sleek, responsive layouts to engaging UI elements.",
-    avatar:"/assets/images/gerard.png",
+    email: "gerard01@gmail.com",
+    text: "Seithati consistently demonstrates exceptional creativity and technical skill as a front-end developer. Their attention to detail and commitment to user-centered design shines through in every project, from sleek, responsive layouts to engaging UI elements.",
+    avatar: "/assets/images/gerard.png",
+  },
+  {
+    name: "Sarah",
+    email: "sarah02@gmail.com",
+    text: "Seithati's ability to bring designs to life with smooth animations and responsive layouts is impressive. Working with them has been a pleasure, and the final results always exceed my expectations.",
+    avatar: "/assets/images/sarah.png",
   },
   {
     name: "Gerard",
-    email:"gerard01@gmail.com",
-    text:"Seithati consistently demonstrates exceptional creativity and technical skill as a front-end developer. Their attention to detail and commitment to user-centered design shines through in every project, from sleek, responsive layouts to engaging UI elements.",
-    avatar:"/assets/images/gerard.png",
+    email: "gerard01@gmail.com",
+    text: "Seithati consistently demonstrates exceptional creativity and technical skill as a front-end developer. Their attention to detail and commitment to user-centered design shines through in every project, from sleek, responsive layouts to engaging UI elements.",
+    avatar: "/assets/images/gerard.png",
   },
-]
-
-
-
+  {
+    name: "Gerard",
+    email: "gerard01@gmail.com",
+    text: "Seithati consistently demonstrates exceptional creativity and technical skill as a front-end developer. Their attention to detail and commitment to user-centered design shines through in every project, from sleek, responsive layouts to engaging UI elements.",
+    avatar: "/assets/images/gerard.png",
+  },
+  {
+    name: "Gerard",
+    email: "gerard01@gmail.com",
+    text: "Seithati consistently demonstrates exceptional creativity and technical skill as a front-end developer. Their attention to detail and commitment to user-centered design shines through in every project, from sleek, responsive layouts to engaging UI elements.",
+    avatar: "/assets/images/gerard.png",
+  },
+];
 
 export default function Testimonials() {
   return (
-    <div className="pb-16 md:px-10 md:py-14 px-5 py-10 lg:py-24 flex place-content-center" >
-      <div className="mt-10 place-content-center flex flex-col justify-center ">
+    <div className="py-16">
+      <Bounded className="">
+        <SectionHeader
+          eyebrow="Happy Clients"
+          title="What Clients Say About Me"
+          description="Don't just take my word for it. See what my clients have to say about my work."
+        />
 
-    <SectionHeader eyebrow="Happy Clients" title="What Clients Say About Me" description="Don't just take my word for it, See what mu clients have to say abour my work."
-    />
-
-     
-<div className=" mt-16 flex">
-  <div className=" flex flex-none">
-
-
-    {testimonials.map((testimonial) => (
-      <Card key={testimonial.name} className=" max-w-xs" >
-        <div className=" flex gap-4 items-center ">
-          <div className=" size-14 rounded-full bg-gray-200 inline-flex items-center justify-center ">
-
-
-        <Image width={50} height={50} className=" rounded-full" src={testimonial.avatar} alt={testimonial.name} />
+        {/* Custom styling for mask effect */}
+        <div className="mt-16 lg:mt-24 flex overflow-x-clip [mask-image:linear-gradient(to_right,rgba(0,0,0,0),rgba(0,0,0,1)_10%,rgba(0,0,0,1)_90%,rgba(0,0,0,0))]">
+          <div className="flex gap-8 flex-none">
+            {testimonials.map((testimonial, index) => (
+              <Card key={`${testimonial.name}-${testimonial.email}-${index}`} className="max-w-xs h-[270px] md:p-8 md:max-w-md">
+                <div className="flex gap-4 items-center">
+                  <div className="w-14 h-14 rounded-full bg-gray-200 inline-flex items-center justify-center flex-shrink-0">
+                    <Image
+                      width={50}
+                      height={50}
+                      className="rounded-full max-h-full"
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                    />
+                  </div>
+                  <div>
+                    <div className="font-semibold">{testimonial.name}</div>
+                    <div className="text-sm text-gray-400">{testimonial.email}</div>
+                  </div>
+                </div>
+                <p className="mt-4 md:mt-6 text-sm md:text-base">{testimonial.text}</p>
+              </Card>
+            ))}
           </div>
-        <div>
-
-        <div className=" font-semibold ">{testimonial.name}</div>
-        <div className=" text-sm  text-gray-400 ">{testimonial.email}</div>
         </div>
-        </div>
-        <p className=" mt-4 text-sm" >{testimonial.text}</p>
-        </Card>
+      </Bounded>
 
-))}
-</div>
     </div>
-    </div>
-    </div>
-  )
+  );
 }

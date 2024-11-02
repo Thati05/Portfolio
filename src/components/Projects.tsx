@@ -20,10 +20,13 @@ export default function Projects() {
           See how I transformed concepts into engaging digital experiences
         </p>
         <div className="flex flex-col mt-10 gap-20 md:mt-20 justify-center ">
-          {portfolioProject.map((project) => (
+          {portfolioProject.map((project, projectIndex) => (
             <div 
               key={project.title} 
-              className="bg-[#F5F5F5] rounded-3xl relative z-0 overflow-hidden after:z-10 after:absolute after:inset-0 after:content-[''] after:outline-1 after:outline-[#E6E6E6] after:outline after:-outline-offset-2 after:rounded-3xl px-8 pt-8 after:pointer-events-none md:pt-12 md:px-10 lg:pt-16 lg:px-20"
+              className="bg-[#F5F5F5] sticky rounded-3xl top-16 z-0 overflow-hidden after:z-10 after:absolute after:inset-0 after:content-[''] after:outline-1 after:outline-[#E6E6E6] after:outline after:-outline-offset-2 after:rounded-3xl px-8 pt-8 after:pointer-events-none md:pt-12 md:px-10 lg:pt-16 lg:px-20"
+             style={{
+              top: `calc(64px + ${projectIndex * 40}px)`,
+             }}
             >
               <div className=' lg:grid lg:grid-cols-2 lg:gap-16'>
                 <div className='lg:pb-16'>

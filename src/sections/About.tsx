@@ -7,6 +7,7 @@ import CardHeader from '@/components/CardHeader';
 import { ToolboxItems } from '@/components/ToolboxItems';
 import Screencode from '@/app/Icons/screen_code.png'
 
+
 export const toolboxItems = [
   { title: 'TypeScript', icon: '/assets/Icons/TypeScript.svg' },
   { title: 'Python', icon: '/assets/Icons/Python.svg' },
@@ -86,8 +87,8 @@ export default function About({}: Props) {
       title="Tool box"
       description="Explore the technologies and tools I use to craft exceptional digital experiences."
     />
-    <ToolboxItems className="mt-6" items={toolboxItems} />
-    <ToolboxItems className="mt-6" itemsWrapperClassName="-translate-x-1/2" items={toolboxItems} />
+    <ToolboxItems className="mt-6" items={toolboxItems}  itemsWrapperClassName='animate-move-left [animation-duration:30s]' />
+    <ToolboxItems className="mt-6" itemsWrapperClassName=" animate-move-right  [animation-duration:15s]" items={toolboxItems} />
   </Card>
 </div>
 

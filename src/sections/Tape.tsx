@@ -1,5 +1,6 @@
 import Star from '@/app/Icons/star.png';
 import Image from 'next/image';
+import { Fragment } from 'react';
 
 const words = [
   "Innovative",
@@ -23,19 +24,30 @@ export default function Tape() {
           background: `linear-gradient(to right, black, gray, black , gray ,black)`,
         */}}
       >
-        <div className=' flex [mask-image: linear-gradient(to_right, transparent,black_10%, black_90%,transparent)]'>
+        <div className="flex [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
 
-        <div  className=" flex flex-none gap-4 py-3 ">
-
-        {words.map((word, index) => (
-          <div key={`${word}-${index}`} className="inline-flex gap-4 items-center">
-            <span className=" ">{word}</span>
-            <Image className=' -rotate-12' src={Star} width={24} height={24} alt="Star Icon" />
+        <div className="flex flex-none pr-4 gap-4 py-3 animate-move-left [animation-duration:30s]">
+            {[...Array(2)].map((_, idx) => (
+              <Fragment key={idx}>
+                {words.map((word, index) => (
+                  <div key={`${word}-${index}`} className="inline-flex gap-4 items-center">
+                    <span>{word}</span>
+                    <Image
+                      className="-rotate-12"
+                      src={Star}
+                      width={24}
+                      height={24}
+                      alt="Star Icon"
+                    />
+                  </div>
+                ))}
+              </Fragment>
+            ))}
           </div>
-        ))}
+      
         </div>
         </div>
       </div>
-    </div>
+    
   );
 }

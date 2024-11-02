@@ -9,7 +9,7 @@ type Props = {
 
 export default function CardHeader({ title, description, className }: Props) {
   return (
-    <div className={twMerge("flex flex-col",className)}>
+    <div className={twMerge("flex flex-col p-7",className)}>
       <div className="inline-flex items-center gap-2">
         <Image src={StarIcon} alt="star-icon" width={35} height={35} />
         <h3 className="text-3xl">{title}</h3>

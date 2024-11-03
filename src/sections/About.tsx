@@ -11,12 +11,16 @@ import {motion} from 'framer-motion'
 
 
 export const toolboxItems = [
-  { title: 'TypeScript', icon: '/assets/Icons/TypeScript.svg' },
+  { title: 'TypeScript', icon:'/assets/Icons/TypeScript.svg' },
   { title: 'Python', icon: '/assets/Icons/Python.svg' },
   { title: 'Three.js', icon: '/assets/Icons/Three.js.svg' },
   { title: 'React', icon: '/assets/Icons/React.svg' },
   { title: 'Next.js', icon: '/assets/Icons/Next.js.svg' },
   { title: 'Tailwind', icon: '/assets/Icons/Tailwind CSS.svg' },
+  { title: 'Django', icon: '/assets/Icons/Django.svg' },
+  { title: 'Figma', icon: '/assets/Icons/Figma.svg' },
+  { title: 'Blender', icon: '/assets/Icons/Blender.svg' },
+  { title: 'Django REST', icon: '/assets/Icons/Django REST.svg' },
 ];
 
 const hobbies = [
@@ -45,7 +49,7 @@ export default function About({}: Props) {
 
 
   return (
-    <section id='about'>
+    <section>
 
     <Bounded className="py-10">
       <div className=' flex flex-col gap-8 '>

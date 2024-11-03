@@ -10,10 +10,20 @@ import Testimonials from "@/sections/Testimonials";
 export default function Home() {
   return (
    <main className=" font-Urbanist max-w-7xl mx-auto relative justify-center  ">
-  
-      <Hero/>
-      <About/>
+    
+     {/* Home Section */}
+     <section id="home">
+        <Hero />
+      </section>
+
+      {/* About Section */}
+      <section id="about">
+        <About />
+      </section>
+     <section id="work">
+
       <Projects />
+     </section>
       <Tape/>
       <Testimonials/>
       

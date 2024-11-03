@@ -15,11 +15,11 @@ export function ToolboxItems({ items, className, itemsWrapperClassName }: Toolbo
   return (
     <div
       className={twMerge(
-        "flex [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]",
+        "flex xl:w-[828px]  [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]",
         className
       )}
     >
-      <div className={twMerge("flex py-0.5 flex-none gap-6 pr-6", itemsWrapperClassName)}>
+      <div className={twMerge("flex py-0.5 flex-none gap-6 pr-7", itemsWrapperClassName)}>
         {Array(2)
           .fill(0)
           .map((_, index) => (

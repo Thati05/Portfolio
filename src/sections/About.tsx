@@ -1,11 +1,13 @@
 "use client"
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Card from '@/components/Card';
 import Image from 'next/image';
 import Bounded from '@/components/Bounded';
 import CardHeader from '@/components/CardHeader';
 import { ToolboxItems } from '@/components/ToolboxItems';
 import Screencode from '@/app/Icons/screen_code.png'
+import {motion} from 'framer-motion'
+
 
 
 export const toolboxItems = [
@@ -38,7 +40,7 @@ export default function About({}: Props) {
     setTimeout(() => setCopyEmail(false), 5000) //Reseting the button text after 5 seconds
   };
 
-
+ const constrainRef = useRef(null);
 
 
 
@@ -81,7 +83,7 @@ export default function About({}: Props) {
   </Card>
 
   {/* Toolbox Section - 60% width on medium screens */}
-  <Card className="h-[320px] p-0 w-full xl:flex-[0_0_60%]">
+  <Card className="h-[320px] xl:flex-[0_0_60%] flex flex-col p-0">
     <CardHeader
       className="px-7 pt-7"
       title="Tool box"
@@ -101,26 +103,28 @@ export default function About({}: Props) {
       title="Beyond the code"
       description="Explore my interests and hobbies beyond the code"
     />
-    <div className="relative xl:flex-[0_0_40%] flex-1 ">
+    <div className="relative xl:flex-[0_0_50%] flex-1 cursor-pointer  " ref={constrainRef}>
       {hobbies.map((hobby) => (
-        <div
+        <motion.div
           key={hobby.title}
           className="inline-flex lg:relative  items-center gap-2 px-6 bg-white rounded-full border border-gray-300 py-1.5 absolute"
           style={{
             left: hobby.left,
             top: hobby.top
           }}
+          drag
+          dragConstraints={constrainRef}
         >
           <span className="font-medium">{hobby.title}</span>
           <span>{hobby.emoji}</span>
-        </div>
+        </motion.div>
       ))}
     </div>
   </Card>
 
   {/* Additional Cards Section - 40% width on medium screens */}
   <div className="flex flex-col gap-4 h-[320px] lg:flex-[0_0_40%]">
-    <Card className="flex items-center">
+    <Card className="flex items-center h-[152px] md:w-[477px]">
       <p className="text-base">Tech enthusiast with a passion for development</p>
       <div className="opacity-80 overflow-hidden w-40 mx-auto ml-8 absolute -mb-10 right-8">
         <Image
@@ -132,7 +136,7 @@ export default function About({}: Props) {
       </div>
     </Card>
 
-    <Card className="flex flex-col items-center justify-center">
+    <Card className="flex flex-col h-[152px]  md:w-[477px] items-center justify-center">
       <p>Do you want to start a new project together?</p>
       <div>
         {copyEmail ? (

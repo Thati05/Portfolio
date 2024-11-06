@@ -2,6 +2,7 @@ import Hero from "@/components/Hero/Hero";
 //import Hero_2nd from "@/components/Hero_2nd";
 import Projects from "@/components/Projects";
 import About from "@/sections/About";
+import Contact from "@/sections/Contact";
 import Tape from "@/sections/Tape";
 import Testimonials from "@/sections/Testimonials";
 
@@ -26,6 +27,7 @@ export default function Home() {
      </section>
       <Tape/>
       <Testimonials/>
+      <Contact/>
       
     
      

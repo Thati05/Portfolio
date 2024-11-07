@@ -19,7 +19,7 @@
 }
 
 .field-input {
-  @apply w-full border border-gray-300   px-5 py-2 min-h-14 rounded-xl placeholder:text-gray-500 text-lg  text-white shadow-sm focus:outline-none;
+  @apply w-full border border-gray-300   px-5 py-2 min-h-14 rounded-xl placeholder:text-gray-500 text-lg text-black shadow-sm focus:outline-none;
 }
 
 .field-btn {

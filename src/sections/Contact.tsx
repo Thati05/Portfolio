@@ -6,6 +6,9 @@ import Image from 'next/image';
 import { useRef, useState, ChangeEvent, FormEvent } from 'react';
 import ArrowUpRightIcon from '@/app/Icons/arrowupright.png';
 import emailjs from '@emailjs/browser';
+ import { useAlert } from '@/hooks/useAlert';
+ import Alert from '@/components/Alert';
+
 
 type FormData = {
   name: string;
@@ -13,10 +16,10 @@ type FormData = {
   message: string;
 };
 
-type Props = {};
-
-export default function Contact({}: Props) {
+export default function Contact() {
   const formRef = useRef<HTMLFormElement | null>(null);
+  const { alert, showAlert, hideAlert } = useAlert();
+
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState<FormData>({
     name: '',
@@ -24,18 +27,18 @@ export default function Contact({}: Props) {
     message: '',
   });
 
-  // Updates form state based on input changes
   const handleChange = ({ target: { name, value } }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prevForm) => ({ ...prevForm, [name]: value }));
   };
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
     try {
       await emailjs.send(
-        'service_pw6lwxx', // Service ID
-        'template_noaxb7b', // Template ID, replace with the correct ID
+        'service_pw6lwxx',
+        'template_noaxb7b',
         {
           from_name: form.name,
           to_name: 'Seithati',
@@ -43,21 +46,26 @@ export default function Contact({}: Props) {
           to_email: 'm.seithati01@gmail.com',
           message: form.message,
         },
-        'jCKPsIZCUbiBEwjnO' // Public API key or User ID
+        'jCKPsIZCUbiBEwjnO'
       );
 
       setLoading(false);
-      alert('Your message has been sent');
+      showAlert({ text: 'Thank you for your message 😃', type: 'success' });
       setForm({ name: '', email: '', message: '' });
+
+      setTimeout(() => hideAlert(), 3000);
     } catch (error) {
       setLoading(false);
       console.error(error);
-      alert('Something went wrong');
+
+      showAlert({ text: "I didn't receive your message 😢", type: 'danger' });
     }
   };
 
+
   return (
     <Bounded>
+      {alert.show && <Alert type={alert.type} text={alert.text} />}
       <SectionHeader
         eyebrow="Communication"
         title="Let's Connect"
@@ -117,6 +125,7 @@ export default function Contact({}: Props) {
               {loading ? 'Sending...' : 'Send Message'}
               <Image src={ArrowUpRightIcon} width={20} height={20} alt="arrow-btn" />
             </button>
+            
           </form>
         </div>
       </div>

@@ -1,11 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @layer utilities {
   .container {
-    @apply lg:max-w-5xl
+    @apply lg:max-w-5xl;
   }
+}
+
+/* contact section */
+.contact-container {
+  @apply lg:w-2/4 md:w-3/4 w-full relative  sm:px-10 px-5;
+}
+
+.field-label {
+  @apply text-lg text-black;
+}
+
+.field-input {
+  @apply w-full border border-gray-300   px-5 py-2 min-h-14 rounded-xl placeholder:text-gray-500 text-lg  text-white shadow-sm focus:outline-none;
+}
+
+.field-btn {
+  @apply  px-5 py-2 min-h-12 rounded-xl bg-black flex justify-center items-center text-lg text-white gap-3;
 }

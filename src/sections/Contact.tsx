@@ -54,6 +54,16 @@ export default function Contact() {
       setForm({ name: '', email: '', message: '' });
 
       setTimeout(() => hideAlert(), 3000);
+
+      
+//Reset form
+setForm({
+  name: '',
+  email: '',
+  message: '',
+});
+
+
     } catch (error) {
       setLoading(false);
       console.error(error);

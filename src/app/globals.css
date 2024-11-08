@@ -25,3 +25,10 @@
 .field-btn {
   @apply  px-5 py-2 min-h-12 rounded-xl bg-black flex justify-center items-center text-lg text-white gap-3;
 }
+
+.copy-btn{
+  @apply  px-8 py-[2px] min-h-10 rounded-full border border-white bg-black flex justify-center items-center text-sm text-white gap-3;
+}
+.copied-btn{
+  @apply  px-8 py-[2px] min-h-10 rounded-full border border-black bg-white flex justify-center items-center text-sm text-black gap-3;
+}

@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
           <div
             onClick={() => handleLinkClick("work", "Work")}
             className={`font-semibold cursor-pointer text-[16px] py-2 px-6 max-md:px-[10px] max-md:py-2 rounded-full transition-all duration-300 ease-in-out transform ${
-              activeLink === "Contact"
+              activeLink === "Work"
                 ? "bg-gray-100 text-gray-900"
                 : "bg-transparent text-gray-400"
             }`}
@@ -52,16 +52,15 @@ const Navbar: React.FC = () => {
             Work
           </div>
 
-          {/* Blog Link */}
           <div
-            onClick={() => setActiveLink("Blog")}
+            onClick={() => handleLinkClick("contact", "Contact")}
             className={`font-semibold cursor-pointer text-[16px] py-2 px-6 max-md:px-[10px] max-md:py-2 rounded-full transition-all duration-300 ease-in-out transform ${
-              activeLink === "Blog"
+              activeLink === "Contact"
                 ? "bg-gray-100 text-gray-900"
                 : "bg-transparent text-gray-400"
             }`}
           >
-            <a href="/blog">Blog</a>
+            Contact
           </div>
         </div>
 

@@ -79,7 +79,7 @@ export default function About({}: Props) {
     <h3 className="mt-3 text-center font-semibold text-base">Hi, I'm Seithati Mokoena</h3>
     <div className="w-80 mx-auto mt-3">
       <p className="text-center text-sm mt-1">
-        Hi! I am a front-end developer based in South Africa, passionate about designing beautiful,
+        I am a front-end developer based in South Africa, passionate about designing beautiful,
         functional interfaces and bringing them to life through code. While I'm self-taught, I owe
         much of my journey to my Creator—and, of course, countless YouTube tutorials.
       </p>
@@ -142,11 +142,11 @@ export default function About({}: Props) {
 
     <Card className="flex flex-col h-[152px]  md:w-[477px] items-center justify-center">
       <p>Do you want to start a new project together?</p>
-      <div>
+      <div className=' mt-5'>
         {copyEmail ? (
           <button className="text-green-500">Email copied</button>
         ) : (
-          <button className="text-blue-500" onClick={handleCopyEmail}>Copy email</button>
+          <button className=" copy-btn" onClick={handleCopyEmail}>Copy email</button>
         )}
       </div>
     </Card>

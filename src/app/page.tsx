@@ -6,6 +6,7 @@ import Contact from "@/sections/Contact";
 import Tape from "@/sections/Tape";
 import Testimonials from "@/sections/Testimonials";
 import Footer from "@/sections/Footer";
+import { FloatingNav } from "@/components/FloatingNav";
 
 
 
@@ -13,6 +14,15 @@ export default function Home() {
   return (
    <main className=" font-Urbanist max-w-7xl mx-auto relative justify-center  ">
     
+    <FloatingNav
+  navItems={[
+    { name: 'Home', link: '#home' },
+    { name: 'About', link: '#about' },
+    { name: 'Work', link: '#work' },
+    { name: 'Contact', link: '#contact' },
+  ]}
+/>
+
      {/* Home Section */}
      <section id="home">
         <Hero />

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Bounded from '@/components/Bounded';
 import CardHeader from '@/components/CardHeader';
 import { ToolboxItems } from '@/components/ToolboxItems';
-import Screencode from '@/app/Icons/screen_code.png'
+import techGuy from '@/app/Icons/techGuy.png'
 import {motion} from 'framer-motion'
 
 
@@ -128,14 +128,14 @@ export default function About({}: Props) {
 
   {/* Additional Cards Section - 40% width on medium screens */}
   <div className="flex flex-col gap-4 h-[320px] lg:flex-[0_0_40%]">
-    <Card className="flex items-center h-[152px] md:w-[477px]">
+    <Card className="flex gap-5  items-center h-[152px] md:w-[477px]">
       <p className="text-base">Tech enthusiast with a passion for development</p>
       <div className="opacity-80 overflow-hidden w-40 mx-auto ml-8 absolute -mb-10 right-8">
         <Image
-          className="relative h-full w-auto object-cover object-right-bottom max-w-none"
-          width={100}
-          src={Screencode}
-          alt="Screen-code image"
+          className="relative lg:ml-3 h-full w-auto object-cover object-right-bottom max-w-none"
+          width={170}
+          src={techGuy}
+          alt="techGuy image"
         />
       </div>
     </Card>

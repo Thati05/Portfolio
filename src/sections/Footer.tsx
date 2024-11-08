@@ -5,15 +5,15 @@ import React from 'react';
 const footerLinks = [
   {
     title: 'Instagram',
-    href: '#'
+    href: 'https://www.instagram.com/thati_ly_/'
   },
   {
     title: 'GitHub',
-    href: '#'
+    href: 'https://github.com/Thati05'
   },
   {
     title: 'LinkedIn',
-    href: '#'
+    href: 'https://www.linkedin.com/'
   }
 ];
 

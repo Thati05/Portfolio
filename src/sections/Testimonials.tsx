@@ -6,35 +6,25 @@ import { Fragment } from "react";
 
 const testimonials = [
   {
-    name: "Gerard",
-    email: "gerard01@gmail.com",
-    text: "Seithati consistently demonstrates exceptional creativity and technical skill as a front-end developer. Their attention to detail and commitment to user-centered design shines through in every project, from sleek, responsive layouts to engaging UI elements.",
-    avatar: "/assets/images/gerard.png",
+    name: "Lebohang Khumalo",
+    position: "Computer Scientist",
+    text: "Seithati Mokoena is a skilled developer with a keen design eye. Her work, including impressive 3D modeling projects, highlights her creativity and commitment to learning. Seithati combines technical expertise with innovation, and I’m confident she’ll continue making a strong impact in the industry.",
+    avatar: "/assets/images/lebo.png",
   },
   {
-    name: "Sarah",
-    email: "sarah02@gmail.com",
-    text: "Seithati's ability to bring designs to life with smooth animations and responsive layouts is impressive. Working with them has been a pleasure, and the final results always exceed my expectations.",
-    avatar: "/assets/images/gerard.png",
-  },
-  {
-    name: "Gerard",
-    email: "gerard01@gmail.com",
-    text: "Seithati consistently demonstrates exceptional creativity and technical skill as a front-end developer. Their attention to detail and commitment to user-centered design shines through in every project, from sleek, responsive layouts to engaging UI elements.",
-    avatar: "/assets/images/gerard.png",
+    name: "Kgothatso",
+    position: "Client",
+    text: 
+    "Having followed Seithati’s journey through software development, I’ve seen firsthand her dedication, skill, and creativity across every project. From her beautifully designed websites to her meticulous code, she consistently brings vision to life. Her work not only meets but exceeds expectations",
+    avatar: "/assets/images/KG.png",
   },
   {
     name: "Gerard",
-    email: "gerard01@gmail.com",
+    position: "gerard01@gmail.com",
     text: "Seithati consistently demonstrates exceptional creativity and technical skill as a front-end developer. Their attention to detail and commitment to user-centered design shines through in every project, from sleek, responsive layouts to engaging UI elements.",
     avatar: "/assets/images/gerard.png",
   },
-  {
-    name: "Gerard",
-    email: "gerard01@gmail.com",
-    text: "Seithati consistently demonstrates exceptional creativity and technical skill as a front-end developer. Their attention to detail and commitment to user-centered design shines through in every project, from sleek, responsive layouts to engaging UI elements.",
-    avatar: "/assets/images/gerard.png",
-  },
+ 
 ];
 
 export default function Testimonials() {
@@ -56,7 +46,7 @@ export default function Testimonials() {
               <Fragment key={idx}>
                 {testimonials.map((testimonial, index) => (
                   <Card
-                    key={`${testimonial.name}-${testimonial.email}-${index}`}
+                    key={`${testimonial.name}-${testimonial.position}-${index}`}
                     className="max-w-xs h-[270px] md:p-8 md:max-w-md hover:-rotate-3 transition duration-300"
                   >
                     <div className="flex gap-4 items-center">
@@ -72,7 +62,7 @@ export default function Testimonials() {
                       <div>
                         <div className="font-semibold">{testimonial.name}</div>
                         <div className="text-sm text-gray-400">
-                          {testimonial.email}
+                          {testimonial.position}
                         </div>
                       </div>
                     </div>

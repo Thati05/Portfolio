@@ -17,9 +17,9 @@ const footerLinks = [
   }
 ];
 
-type Props = {};
 
-export default function Footer({}: Props) {
+
+export default function Footer() {
   return (
     <footer>
       <Bounded className=' '>
@@ -31,7 +31,7 @@ export default function Footer({}: Props) {
             {footerLinks.map((link) => (
               <a className='inline-flex items-center gap-1.5' key={link.title} href={link.href} target="_blank" rel="noopener noreferrer" >
                 <span className='font-semibold'>{link.title}</span>
-                <img
+                <Image
                   src='https://cdn-icons-png.flaticon.com/512/7312/7312623.png'
                   width={20}
                   height={20}

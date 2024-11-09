@@ -59,7 +59,7 @@ export default function About() {
   <Card className="h-[320px] w-full xl:flex-[0_0_40%]">
     <div className="flex flex-col gap-1 items-center">
       <div className="w-14 h-14 rounded-full bg-gray-200 inline-flex items-center justify-center flex-shrink-0">
-        <Image
+        <img
           className="rounded-full"
           src="/assets/images/Thati.jpg"
           width={50}

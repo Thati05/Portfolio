@@ -19,28 +19,27 @@ const DreiLoader = dynamic(() =>
 export default function Text() {
   return (
     <div className="w-[96.8svw] top-0 z-50 sticky max-md:h-[30vh] row-span-1 row-start-1 h-[70vh] -mt-9">
-      <Canvas
-        style={{
-          position: 'relative',
-          top: 0,
-          left: '49%',
-          transform: 'translate(-50%)',
-          overflow: 'hidden',
-          zIndex: 30,
-        }}
-        dpr={[1, 1.5]}
-        camera={{ position: [0, 0, 30], far: 40, near: 1 }}
-        gl={{ antialias: false }}
-      >
-        <Suspense fallback={<DreiLoader />}>
-          <Model />
-          <Environment environmentIntensity={3} preset="city" />
-        </Suspense>
-      </Canvas>
-      {/* Standalone Loader Component */}
-      <DreiLoader />
-    </div>
-  );
+    <Canvas
+      style={{
+        position: 'relative',
+        top: 0,
+        left: '49%',
+        transform: 'translate(-50%)',
+        overflow: 'hidden',
+        zIndex: 30,
+      }}
+      dpr={[1, 1.5]}
+      camera={{ position: [0, 0, 30], far: 40, near: 1 }}
+      gl={{ antialias: false }}
+    >
+      <Suspense fallback={<DreiLoader />}>
+        <Model />
+        <Environment environmentIntensity={3} preset="city" />
+      </Suspense>
+    </Canvas>
+    <DreiLoader />
+  </div>
+);
 }
 
 export function Model(props) {

@@ -15,13 +15,13 @@ const testimonials = [
     name: "Kgothatso Annie",
     position: "Client",
     text: 
-    "Having followed Seithati’s journey through software development, I’ve seen firsthand her dedication, skill, and creativity across every project. From her beautifully designed websites to her meticulous code, she consistently brings vision to life. Her work not only meets but exceeds expectations",
+    "Having followed Seithati’s journey in software development, I’ve seen firsthand her dedication, skill, and creativity in every project. Her impressive designs and websites showcase her innovative thinking and commitment to learning. Seithati's work consistently exceeds expectations.",
     avatar: "/assets/images/KG3.png",
   },
   {
     name: "Lebohang Khumalo",
     position: "Computer Scientist",
-    text: "Seithati Mokoena is a skilled developer with a keen design eye. Her work, including impressive 3D modeling projects, highlights her creativity and commitment to learning. Seithati combines technical expertise with innovation, and I’m confident she’ll continue making a strong impact in the industry.",
+    text: "Seithati Mokoena is a skilled developer with a keen design eye. From her beautifully crafted websites to her meticulous code, she consistently brings vision to life. Seithati combines technical expertise with innovation, and I’m confident she’ll continue making a strong impact in the industry.",
     avatar: "/assets/images/lebo.png",
   },
   

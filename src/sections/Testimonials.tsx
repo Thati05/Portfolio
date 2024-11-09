@@ -6,23 +6,31 @@ import { Fragment } from "react";
 
 const testimonials = [
   {
+    name: "Tumelo Mokoena",
+    position: "Network Support Technician",
+    text: "Seithati consistently demonstrates exceptional creativity and technical skill as a developer. Her attention to detail and commitment to user-centered design shines through in every project, from sleek, responsive layouts to engaging UI elements.",
+    avatar: "/assets/images/Ntate.png",
+  },
+  {
+    name: "Kgothatso Annie",
+    position: "Client",
+    text: 
+    "Having followed Seithati’s journey through software development, I’ve seen firsthand her dedication, skill, and creativity across every project. From her beautifully designed websites to her meticulous code, she consistently brings vision to life. Her work not only meets but exceeds expectations",
+    avatar: "/assets/images/KG3.png",
+  },
+  {
     name: "Lebohang Khumalo",
     position: "Computer Scientist",
     text: "Seithati Mokoena is a skilled developer with a keen design eye. Her work, including impressive 3D modeling projects, highlights her creativity and commitment to learning. Seithati combines technical expertise with innovation, and I’m confident she’ll continue making a strong impact in the industry.",
     avatar: "/assets/images/lebo.png",
   },
-  {
-    name: "Kgothatso",
-    position: "Client",
-    text: 
-    "Having followed Seithati’s journey through software development, I’ve seen firsthand her dedication, skill, and creativity across every project. From her beautifully designed websites to her meticulous code, she consistently brings vision to life. Her work not only meets but exceeds expectations",
-    avatar: "/assets/images/KG.png",
-  },
-  {
-    name: "Gerard",
-    position: "gerard01@gmail.com",
-    text: "Seithati consistently demonstrates exceptional creativity and technical skill as a front-end developer. Their attention to detail and commitment to user-centered design shines through in every project, from sleek, responsive layouts to engaging UI elements.",
-    avatar: "/assets/images/gerard.png",
+  
+
+   {
+    name: "Milo Brook",
+    position: "Technical Assistant",
+    text: "Seithati is a driven and resilient software developer who consistently pushes herself to learn and grow. Her passion and persistence are evident in every project she takes on. She’s laying a strong foundation for a bright future in tech",
+    avatar: "/assets/images/Milo.png",
   },
  
 ];

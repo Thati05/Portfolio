@@ -85,7 +85,7 @@ setForm({
       <div className="relative mt-10 min-h-screen flex items-center justify-center flex-col">
         <Image
           className="lg:px-20 flex w-full absolute inset-0 items-center min-h-screen object-fill z-0"
-          src="/assets/images/Group 1.png"
+          src="/assets/images/group.png"
           alt="terminal background"
           layout="fill"
         />

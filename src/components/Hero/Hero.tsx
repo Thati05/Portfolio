@@ -18,7 +18,7 @@ export default function Hero() {
  
 
   return (
-    <Bounded className="hero flex-col min-h-screen w-full flex relative" ref={componentRef}>
+    <Bounded  ref={componentRef}>
     
  <Text  />
 

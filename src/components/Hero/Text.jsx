@@ -148,9 +148,7 @@ export function Model(props) {
 
   
   }  
-  const handlePointerOut = () => {
-    document.body.style.cursor = "default";
-  };
+  
   return (
     <group {...props} dispose={null} position={[-42.5, -1.5, 9.8]} rotation={[0, -Math.PI, 0]} scale={7}>
       {/* Top mesh (e.g., planet) with rotation on click */}

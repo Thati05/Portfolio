@@ -100,11 +100,6 @@ export function Model(props) {
     const handlePointerOver = () => {
       document.body.style.cursor = "pointer";
     };
-    
-    const handlePointerOut = () => {
-      document.body.style.cursor = "default";
-    };
-
 
 
     useEffect(() => {
@@ -133,7 +128,7 @@ export function Model(props) {
         rotation={rotation}
         onClick={handleClick}
         onPointerOver={handlePointerOver}
-        onPointerOut={handlePointerOut}
+        onPointerOut={() => (document.body.style.cursor = "default")}
       />
     );
   }

@@ -7,10 +7,10 @@ import Text from '../Hero/Text';
 
 // Hero Component
 export default function Hero() {
-  
+  const componentRef = useRef<HTMLDivElement | null>(null);
 
   return (
-    <Bounded >
+    <Bounded ref={componentRef}>
       <Text />
     </Bounded>
   );

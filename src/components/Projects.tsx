@@ -2,7 +2,6 @@
 
 import React, { useEffect } from 'react';
 import Image from 'next/image'; // Import Next.js Image component
-import Bounded from './Bounded';
 import portfolioProject from '../constants/index';
 import ArrowUpRightIcon from '@/app/Icons/arrowupright.png';
 

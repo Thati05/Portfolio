@@ -1,5 +1,4 @@
 import Bounded from '@/components/Bounded';
-import Image from 'next/image';
 import React from 'react';
 
 const footerLinks = [
@@ -31,7 +30,7 @@ export default function Footer() {
             {footerLinks.map((link) => (
               <a className='inline-flex items-center gap-1.5' key={link.title} href={link.href} target="_blank" rel="noopener noreferrer" >
                 <span className='font-semibold'>{link.title}</span>
-                <Image
+                <img
                   src='https://cdn-icons-png.flaticon.com/512/7312/7312623.png'
                   width={20}
                   height={20}

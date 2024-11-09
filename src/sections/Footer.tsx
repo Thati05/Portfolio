@@ -29,7 +29,7 @@ export default function Footer({}: Props) {
           </div>
           <nav className='flex md:flex-row flex-col items-center gap-8'>
             {footerLinks.map((link) => (
-              <a className='inline-flex items-center gap-1.5' key={link.title} href={link.href}>
+              <a className='inline-flex items-center gap-1.5' key={link.title} href={link.href} target="_blank" rel="noopener noreferrer" >
                 <span className='font-semibold'>{link.title}</span>
                 <img
                   src='https://cdn-icons-png.flaticon.com/512/7312/7312623.png'

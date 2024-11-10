@@ -8,10 +8,10 @@ import { Suspense, useEffect, useState, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import gsap from "gsap";
 
-// Extend the necessary components for R3F to recognize
-extend(THREE);
+// Extend necessary objects to avoid R3F namespace errors
+extend({ Float, Environment }); // Ensure these components are usable in Canvas
 
-// Load loader dynamically for SSR
+// Load the loader dynamically for SSR compatibility
 const DreiLoader = dynamic(() =>
   import('@react-three/drei').then((mod) => mod.Loader), {
     ssr: false,
@@ -142,7 +142,7 @@ export function Model(props) {
     <group {...props} dispose={null} position={[-42.5, -1.5, 9.8]} rotation={[0, -Math.PI, 0]} scale={7}>
       <group onPointerOver={() => (document.body.style.cursor = "pointer")}
         onPointerOut={() => (document.body.style.cursor = "default")} onClick={(e) => planetRotation(e.object)} position={[-5.496, 0.356, -0.001]} scale={1.2}>
-        <Float floatIntensity={0.1}>
+          <Float floatIntensity={0.1}>
           <mesh
             castShadow
             receiveShadow

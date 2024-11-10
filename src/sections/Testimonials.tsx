@@ -24,6 +24,13 @@ const testimonials = [
     text: "Seithati Mokoena is a skilled developer with a keen design eye. From her beautifully crafted websites to her meticulous code, she consistently brings vision to life. Seithati combines technical expertise with innovation, and I’m confident she’ll continue making a strong impact in the industry.",
     avatar: "/assets/images/lebo.png",
   },
+  {
+    name: "Tumo Denzel Letuka",
+    position: "Ceo and founder TDL VISUALS",
+    text: "Seithati shows a strong command of design principles, especially with 3D elements and vibrant colors. As a commercial graphic designer, I see great potential in her work; with improvements in typography and mobile optimization, she could excel with top brands. I rate her 7.5/10 for her UI/UX creativity and skill",
+    avatar: "/assets/images/Tumo.png",
+  },
+  
   
 
    {

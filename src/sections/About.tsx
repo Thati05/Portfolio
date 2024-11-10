@@ -79,9 +79,8 @@ export default function About() {
     <h3 className="mt-3 text-center font-semibold text-base">Hi, I&apos;m Seithati Mokoena</h3>
     <div className="w-80 mx-auto mt-3">
       <p className="text-center max-md:mr-5 text-sm mt-1">
-        I am a software developer based in South Africa, passionate about designing beautiful,
-        functional interfaces and bringing them to life through code. While I&apos;m self-taught, I owe
-        much of my journey to my Creator—and, of course, countless YouTube tutorials.
+        I am a self-taught software developer based in South Africa, passionate about designing beautiful,
+        functional interfaces and bringing them to life through code.
       </p>
     </div>
   </Card>

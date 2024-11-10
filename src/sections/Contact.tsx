@@ -127,7 +127,7 @@ setForm({
                 className="field-input"
                 required
                 rows={5}
-                placeholder="Hi, I wanna give you a job..."
+                placeholder="We’d love to discuss how your skills could make an impact..."
               />
             </label>
 

@@ -9,7 +9,7 @@ import { useGLTF } from "@react-three/drei";
 import gsap from "gsap";
 
 // Extend necessary objects to avoid R3F namespace errors
-extend({ Float, Environment }); // Ensure these components are usable in Canvas
+extend({ Float, Environment, useGLTF }); // Ensure these components are usable in Canvas
 
 // Load the loader dynamically for SSR compatibility
 const DreiLoader = dynamic(() =>

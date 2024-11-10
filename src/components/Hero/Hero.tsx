@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import Bounded from '../Bounded';
-import Text from '../Hero/Text';
+import Text from './Text';
 
 
 // Hero Component

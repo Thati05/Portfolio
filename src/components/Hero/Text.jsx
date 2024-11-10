@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import {  View } from "@react-three/drei"
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
-import {  Float, Environment } from "@react-three/drei";
+import {  Environment } from "@react-three/drei";
 import { Suspense, useEffect, useState } from "react";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
@@ -100,7 +100,7 @@ export function Model(props) {
 
   const LetterMesh = ({ geometry, position, rotation, soundEffects }) => {
     const meshRef = useRef();
-    const [currentColor, setCurrentColor] = useState(() =>
+    const [currentColor] = useState(() =>
       gsap.utils.random(["#e74c3c", "#3498db", "#2ecc71", "#8e44ad", "orange", "white", "#f1c40f", "#2980b9", "#e67e22"])
     );
 

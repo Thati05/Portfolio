@@ -1,17 +1,19 @@
 "use client";
 
-import { extend, Canvas } from "@react-three/fiber";
+
 import dynamic from "next/dynamic";
+import {  View } from "@react-three/drei"
 import * as THREE from "three";
-import { Float, Environment } from "@react-three/drei";
-import { Suspense, useEffect, useState, useRef } from "react";
+import { Canvas } from "@react-three/fiber";
+import {  Float, Environment } from "@react-three/drei";
+import { Suspense, useEffect, useState } from "react";
+import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import gsap from "gsap";
 
-// Extend necessary objects to avoid R3F namespace errors
-extend({ Float, Environment, useGLTF }); // Ensure these components are usable in Canvas
 
-// Load the loader dynamically for SSR compatibility
+
+
 const DreiLoader = dynamic(() =>
   import('@react-three/drei').then((mod) => mod.Loader), {
     ssr: false,
@@ -20,7 +22,7 @@ const DreiLoader = dynamic(() =>
 
 export default function Text() {
   return (
-    <div className="w-[96.8svw] top-0 z-50 sticky max-md:h-[30vh] row-span-1 row-start-1 h-[70vh] -mt-9">
+    <>
       <Canvas
         style={{
           position: 'relative',
@@ -33,65 +35,74 @@ export default function Text() {
         dpr={[1, 1.5]}
         camera={{ position: [0, 0, 30], far: 40, near: 1 }}
         gl={{ antialias: false }}
-      >
-        <Suspense fallback={<DreiLoader />}>
-          <Model />
+        >
+        <Suspense fallback={null}>
+          <View.Port/>
+         <Model/>
           <Environment environmentIntensity={3} preset="city" />
         </Suspense>
       </Canvas>
       <DreiLoader />
-    </div>
+   
+        </>
   );
 }
+
 
 export function Model(props) {
   const { nodes } = useGLTF("/Hello-world5_1.glb");
 
+  // Sound effects for letters and planet
   const lettersoundEffects = [
     new Audio('/sounds/footstep_wood_004.ogg'),
-    new Audio('sounds/impactPunch_medium_001.ogg'),
+    new Audio('/sounds/impactPunch_medium_001.ogg'),
     new Audio('/sounds/impactSoft_heavy_004.ogg'),
     new Audio('/sounds/impactWood_medium_004.ogg'),
   ];
+  const planetsoundEffect = [new Audio('/sounds/lowFrequency_explosion_001.ogg')];
 
-  function Geometry({ position, geometry, rotation }) {
-    const meshRef = useRef();
-    
-    const [currentColor, setCurrentColor] = useState(() =>
-      gsap.utils.random(["#e74c3c", "#3498db", "#2ecc71", "#8e44ad", "orange", "white","#f1c40f","#2980b9","#e67e22"])
+  // Handles mesh rotation and color change
+  const handleMeshClick = (e, soundEffects) => {
+    const mesh = e.object;
+
+    // Play a random sound effect
+    gsap.utils.random(soundEffects).play();
+
+    // Pick a new color
+    const newColor = gsap.utils.random([
+      "#e74c3c", "#3498db", "#2ecc71", "#8e44ad",
+      "orange", "white", "#f1c40f", "#2980b9", "#e67e22"
+    ]);
+    mesh.material.color.set(newColor);
+
+    // Rotate the mesh
+    gsap.fromTo(
+      mesh.rotation,
+      { y: 0 },
+      {
+        y: `+=${gsap.utils.random(-0.4, 0.4)}`,
+        duration: 1.3,
+        ease: "elastic.out(1, 0.3)",
+        yoyo: true,
+      }
     );
+  };
 
-    function handleClick(e) {
-      const mesh = e.object;
-      gsap.utils.random(lettersoundEffects).play();
-      const newColor = gsap.utils.random([
-        "#e74c3c",
-        "#3498db",
-        "#2ecc71",
-        "#8e44ad",
-        "orange",
-        "white",
-        "#f1c40f",
-        "#2980b9",
-        "#e67e22"
-      ]);
-      setCurrentColor(newColor);
+  const handlePlanetClick = (mesh) => {
+    gsap.utils.random(planetsoundEffect).play();
+    gsap.to(mesh.rotation, {
+      x: "+=6.28",
+      y: "+=6.28",
+      duration: 2,
+      ease: "power1.inOut",
+    });
+  };
 
-      gsap.fromTo(
-        mesh.rotation,
-        { y: 0 },
-        {
-          y: `+=${gsap.utils.random(-0.4, 0.4)}`,
-          duration: 1.3,
-          ease: "elastic.out(1, 0.3)",
-          yoyo: true,
-        }
-      );
-    }
-
-    const handlePointerOver = () => {
-      document.body.style.cursor = "pointer";
-    };
+  const LetterMesh = ({ geometry, position, rotation, soundEffects }) => {
+    const meshRef = useRef();
+    const [currentColor, setCurrentColor] = useState(() =>
+      gsap.utils.random(["#e74c3c", "#3498db", "#2ecc71", "#8e44ad", "orange", "white", "#f1c40f", "#2980b9", "#e67e22"])
+    );
 
     useEffect(() => {
       let ctx = gsap.context(() => {
@@ -100,11 +111,11 @@ export function Model(props) {
           y: 0,
           z: 0,
           duration: 0.1,
-          ease: 'elastic.out(1, 0.3)',
+          ease: "elastic.out(1, 0.3)",
           delay: 0.5,
         });
       });
-    
+
       return () => ctx.revert();
     }, []);
 
@@ -117,86 +128,43 @@ export function Model(props) {
         material={new THREE.MeshStandardMaterial({ color: currentColor })}
         position={position}
         rotation={rotation}
-        onClick={handleClick}
-        onPointerOver={handlePointerOver}
+        onClick={(e) => handleMeshClick(e, soundEffects)}
+        onPointerOver={() => (document.body.style.cursor = "pointer")}
         onPointerOut={() => (document.body.style.cursor = "default")}
       />
     );
-  }
+  };
 
-  const planetsoundEffect = [
-    new Audio('/sounds/lowFrequency_explosion_001.ogg')
-  ];
-
-  function planetRotation(mesh) {
-    gsap.utils.random(planetsoundEffect).play();
-    gsap.to(mesh.rotation, {
-      x: "+=6.28",
-      y: "+=6.28",
-      duration: 2,
-      ease: "power1.inOut",
-    });
-  }  
-  
   return (
     <group {...props} dispose={null} position={[-42.5, -1.5, 9.8]} rotation={[0, -Math.PI, 0]} scale={7}>
-      <group onPointerOver={() => (document.body.style.cursor = "pointer")}
-        onPointerOut={() => (document.body.style.cursor = "default")} onClick={(e) => planetRotation(e.object)} position={[-5.496, 0.356, -0.001]} scale={1.2}>
-          <Float floatIntensity={0.1}>
+      {/* Planet mesh with rotation on click */}
+      <group
+        onClick={(e) => handlePlanetClick(e.object)}
+        onPointerOver={() => (document.body.style.cursor = "pointer")}
+        onPointerOut={() => (document.body.style.cursor = "default")}
+        position={[-5.496, 0.356, -0.001]}
+        scale={1.2}
+      >
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Icosphere004.geometry}
+          material={nodes.Icosphere004.material}
+        />
+        {Array.from({ length: 6 }).map((_, i) => (
           <mesh
+            key={i}
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere004.geometry}
-            material={nodes.Icosphere004.material} // Retain the original material
-          
+            geometry={nodes[`Icosphere004_${i + 1}`].geometry}
+            material={nodes[`Icosphere004_${i + 1}`].material}
           />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Icosphere004_1.geometry}
-            material={nodes.Icosphere004_1.material}
-            
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Icosphere004_2.geometry}
-            material={nodes.Icosphere004_2.material}
-           
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Icosphere004_3.geometry}
-            material={nodes.Icosphere004_3.material}
-            
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Icosphere004_4.geometry}
-            material={nodes.Icosphere004_4.material}
-            
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Icosphere004_5.geometry}
-            material={nodes.Icosphere004_5.material}
-           
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Icosphere004_6.geometry}
-            material={nodes.Icosphere004_6.material}
-          
-          />
-        </Float>
+        ))}
       </group>
 
-      {/* Letter meshes start with random colors and change color on click */}
-      {[{ name: "<", position: [0.548, 0.037, 0.037], rotation: [Math.PI / 2, 0, -3.112] },
+      {/* Letter meshes with individual color and rotation animations on click */}
+      {[
+        { name: "<", position: [0.548, 0.037, 0.037], rotation: [Math.PI / 2, 0, -3.112] },
         { name: "H", position: [-0.333, 0.037, 0.037], rotation: [Math.PI / 2, 0, -3.112] },
         { name: "E", position: [-1.096, 0.037, 0.037], rotation: [Math.PI / 2, 0, -3.112] },
         { name: "L", position: [-1.791, 0.037, 0.037], rotation: [Math.PI / 2, 0, -3.112] },
@@ -211,11 +179,12 @@ export function Model(props) {
         { name: "L002", position: [-11.743, 0.037, 0.037], rotation: [Math.PI / 2, 0, -3.112] },
         { name: "D001", position: [-12.291, 0.037, 0.037], rotation: [Math.PI / 2, 0, -3.112] },
       ].map(({ name, position, rotation }) => (
-        <Geometry
+        <LetterMesh
           key={name}
           geometry={nodes[name].geometry}
           position={position}
           rotation={rotation}
+          soundEffects={lettersoundEffects}
         />
       ))}
     </group>

@@ -18,9 +18,10 @@ const DreiLoader = dynamic(() =>
 
 export default function Text() {
   return (
-      <div className="w-[96.8svw] top-0 z-50 sticky max-md:h-[30vh] row-span-1 row-start-1 h-[70vh] -mt-9">
+      <>
       <Canvas
-        style={{
+     className="w-[96.8svw] top-0 z-50 sticky max-md:h-[30vh] row-span-1 row-start-1 h-[70vh] -mt-9"
+     style={{
           position: 'relative',
           top: 0,
           left: '49%',
@@ -38,7 +39,8 @@ export default function Text() {
         </Suspense>
       </Canvas>
       <DreiLoader />
-    </div>
+</>
+   
   );
 }
 

@@ -16,10 +16,10 @@ export default function Home() {
     
     <FloatingNav
   navItems={[
-    { name: 'Home', link: '#home' },
-    { name: 'About', link: '#about' },
-    { name: 'Work', link: '#work' },
-    { name: 'Contact', link: '#contact' },
+    { name: 'Home', link: '/' },
+    { name: 'About', link: '/#about' },
+    { name: 'Work', link: '/#work' },
+    { name: 'Blog', link: '/blog' },
   ]}
 />
 
@@ -42,7 +42,7 @@ export default function Home() {
 
       <Contact/>
       </section>
-      <Footer/>
+    
       
     
      

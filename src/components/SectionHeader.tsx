@@ -15,7 +15,7 @@ export default function SectionHeader({title, eyebrow,description}: Props) {
     <h1 className="text-3xl md:text-5xl mt-3 text-[#262626] font-semibold text-center">
      {title}
       </h1>
-    <p className="text-[#737373] text-center max-w-md mx-auto lg:text-xl  text-lg font-normal">
+    <p className="text-[#737373] mt-2 text-center max-w-md mx-auto lg:text-xl  text-lg font-normal">
       {description}
     </p>
     </>

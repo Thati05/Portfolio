@@ -39,7 +39,7 @@ export default function About() {
   const [copyEmail, setCopyEmail] = useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("seitati01@gmail.com");
+    navigator.clipboard.writeText("seithati01@gmail.com");
     setCopyEmail(true);
     setTimeout(() => setCopyEmail(false), 5000) //Reseting the button text after 5 seconds
   };

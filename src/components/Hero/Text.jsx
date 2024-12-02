@@ -2,7 +2,7 @@
 
 
 import dynamic from "next/dynamic";
-import {  View } from "@react-three/drei"
+import {  View, Float } from "@react-three/drei"
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import {  Environment } from "@react-three/drei";
@@ -10,6 +10,8 @@ import { Suspense, useEffect, useState } from "react";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import gsap from "gsap";
+
+
 
 
 
@@ -138,29 +140,35 @@ export function Model(props) {
   return (
     <group {...props} dispose={null} position={[-42.5, -1.5, 9.8]} rotation={[0, -Math.PI, 0]} scale={7}>
       {/* Planet mesh with rotation on click */}
+     
+
       <group
         onClick={(e) => handlePlanetClick(e.object)}
         onPointerOver={() => (document.body.style.cursor = "pointer")}
         onPointerOut={() => (document.body.style.cursor = "default")}
         position={[-5.496, 0.356, -0.001]}
         scale={1.2}
-      >
+        >
+           <Float floatIntensity={0.1}>
+
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Icosphere004.geometry}
           material={nodes.Icosphere004.material}
-        />
+          />
         {Array.from({ length: 6 }).map((_, i) => (
           <mesh
-            key={i}
-            castShadow
-            receiveShadow
-            geometry={nodes[`Icosphere004_${i + 1}`].geometry}
+          key={i}
+          castShadow
+          receiveShadow
+          geometry={nodes[`Icosphere004_${i + 1}`].geometry}
             material={nodes[`Icosphere004_${i + 1}`].material}
           />
         ))}
+        </Float>
       </group>
+         
 
       {/* Letter meshes with individual color and rotation animations on click */}
       {[

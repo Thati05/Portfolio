@@ -2,6 +2,7 @@
 
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 const Navbar: React.FC = () => {
@@ -27,7 +28,9 @@ const Navbar: React.FC = () => {
                 : "bg-transparent text-gray-400"
             }`}
           >
+            <Link href='/'>
             Home
+            </Link>
           </div>
 
           <div
@@ -38,7 +41,9 @@ const Navbar: React.FC = () => {
                 : "bg-transparent text-gray-400"
             }`}
           >
+            <Link href='/#about'>
             About
+            </Link>
           </div>
 
           <div
@@ -49,10 +54,15 @@ const Navbar: React.FC = () => {
                 : "bg-transparent text-gray-400"
             }`}
           >
+            {/*This will allow user to navigate to othernavogations button even when on a different route/page  */}
+            <Link href='/#work'>
             Work
+            </Link>
           </div>
 
-          <div
+          {/**
+           * 
+           <div
             onClick={() => handleLinkClick("contact", "Contact")}
             className={`font-semibold cursor-pointer text-[16px] py-2 px-6 max-md:px-[10px] max-md:py-2 rounded-full transition-all duration-300 ease-in-out transform ${
               activeLink === "Contact"
@@ -61,6 +71,19 @@ const Navbar: React.FC = () => {
             }`}
           >
             Contact
+          </div>
+              */}
+          <div
+            onClick={() => handleLinkClick("blog", "Blog")}
+            className={`font-semibold cursor-pointer text-[16px] py-2 px-6 max-md:px-[10px] max-md:py-2 rounded-full transition-all duration-300 ease-in-out transform ${
+              activeLink === "Blog"
+                ? "bg-gray-100 text-gray-900"
+                : "bg-transparent text-gray-400"
+            }`}
+          >
+            <Link href='/blog'>
+            Blog
+            </Link>
           </div>
         </div>
 

@@ -109,7 +109,7 @@ const Navbar: React.FC = () => {
               />
             </div>
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/seithati-mokoena/" target="_blank" rel="noopener noreferrer">
             <div className="p-2 bg-gray-100 rounded-full">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/2111/2111532.png"

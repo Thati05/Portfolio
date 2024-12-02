@@ -42,7 +42,7 @@ export default function BlogPost({ params }) {
 
    {/* Featured Image */}
        
-        <div className="mt-10 flex place-items-center">
+        <div className="mt-10 flex flex-col gap-5 md:gap-0 md:flex-row place-items-center">
           <img
             src="/assets/images/figma.jpg"
             alt={blogPost.items}

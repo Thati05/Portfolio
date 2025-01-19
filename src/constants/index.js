@@ -47,6 +47,15 @@ const portfolioProject = [
     github: "https://github.com/Thati05/CS50-Web/tree/main/mail",
     display: "/assets/videos/Mail.mp4",
   },
+  {
+    year: "2024",
+    title: "CS50W-Commerce",
+    description: "An eBay-inspired e-commerce auction platform built using Tailwind CSS, Jinja, and Python. Users can create auction listings, place bids, leave comments, and add items to a watchlist, offering an interactive and visually appealing experience for both sellers and bidders",
+    live_site: "https://www.youtube.com/watch?v=2aKOsKIX9wM",
+    figma_design: " ",
+    github: "https://github.com/Thati05/CS50-Web/tree/main/commerce",
+    display: "/assets/videos/Auctions.mp4",
+  },
 ];
 
 export default portfolioProject;
